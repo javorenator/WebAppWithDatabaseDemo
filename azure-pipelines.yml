@@ -80,9 +80,10 @@ stages:
       displayName: Prepare analysis on SonarCloud
       enabled: ${{ parameters.runCompletePipeline }}
       inputs:
-        SonarCloud: SonarCloud
-        organization: houssemdellai
-        projectKey: WebAppWithDatabaseDemo
+        SonarCloud: 'YI-WebAppWithDatabase'
+        organization: 'yavor-ivanov'
+        scannerMode: 'MSBuild'
+        projectKey: 'WebAppWithDatabaseDemo'
 
     - task: DotNetCoreCLI@2
       displayName: Build WebApp
