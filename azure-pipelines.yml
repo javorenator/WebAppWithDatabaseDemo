@@ -43,7 +43,7 @@ jobs:
   - task: SonarCloudPrepare@1
     displayName: 'Prepare analysis on SonarCloud'
     inputs:
-      SonarCloud: SonarCloud
+      SonarCloud: 'YI-WebAppWithDatabase'
       organization: yavor-ivanov
       projectKey: YI-WebAppWithDatabase
   
