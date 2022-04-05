@@ -83,7 +83,7 @@ stages:
         SonarCloud: 'YI-WebAppWithDatabase'
         organization: 'yavor-ivanov'
         scannerMode: 'MSBuild'
-        projectKey: 'WebAppWithDatabaseDemo'
+        projectKey: 'YI-WebAppWithDatabase'
 
     - task: DotNetCoreCLI@2
       displayName: Build WebApp
