@@ -169,20 +169,20 @@
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       },
       "resources": [
-        {
-          "apiVersion": "2015-08-01",
-          "type": "config",
-          "name": "connectionstrings",
-          "dependsOn": [
-            "[resourceId('Microsoft.Web/Sites/', parameters('webSiteName'))]"
-          ],
-          "properties": {
-            "WebAppContext": {
-              "value": "[concat('Data Source=tcp:', reference(resourceId('Microsoft.Sql/servers/', parameters('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('sqlserverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-              "type": "SQLAzure"
-            }
-          }
-        }
+        //{
+        //  "apiVersion": "2015-08-01",
+        //  "type": "config",
+        //  "name": "connectionstrings",
+        //  "dependsOn": [
+        //    "[resourceId('Microsoft.Web/Sites/', parameters('webSiteName'))]"
+        //  ],
+        //  "properties": {
+        //    "WebAppContext": {
+        //      "value": "[concat('Data Source=tcp:', reference(resourceId('Microsoft.Sql/servers/', parameters('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('sqlserverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+        //      "type": "SQLAzure"
+        //    }
+        //  }
+        //}
       ]
     }
   ]
