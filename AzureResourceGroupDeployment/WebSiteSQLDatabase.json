@@ -44,6 +44,9 @@
     "databaseName": {
       "type": "string"
     },
+    "databaseLocation": {
+      "type": "string"
+    },
     "collation": {
       "type": "string",
       "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
@@ -103,7 +106,7 @@
         {
           "name": "[parameters('databaseName')]",
           "type": "databases",
-          "location": "[resourceGroup().location]",
+          "location": "[parameters('databaseLocation')]",
           "tags": {
             "displayName": "Database"
           },
