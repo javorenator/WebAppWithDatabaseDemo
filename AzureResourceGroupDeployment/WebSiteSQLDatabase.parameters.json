@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "hostingPlanName": {
-      "value": "houssemdellai-service-plan"
+      "value": "yivanov-plan"
     },
     "administratorLogin": {
-      "value": "houssem"
+      "value": "yivanov-sa"
     },
     "administratorLoginPassword": {
-      "value": "@Aa123456"
+      "value": "qweQWE123!"
     },
     "databaseName": {
       "value": "EmployeesDB"
