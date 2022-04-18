@@ -93,7 +93,7 @@
     {
       "name": "[parameters('sqlserverName')]",
       "type": "Microsoft.Sql/servers",
-      "location": "Germany West Central",
+      "location": "[parameters('databaseLocation')]",
       "tags": {
         "displayName": "SqlServer"
       },
@@ -106,7 +106,7 @@
         {
           "name": "[parameters('databaseName')]",
           "type": "databases",
-          "location": "Germany West Central",
+          "location": "[parameters('databaseLocation')]",
           "tags": {
             "displayName": "Database"
           },
@@ -127,7 +127,7 @@
           "dependsOn": [
             "[resourceId('Microsoft.Sql/servers/', parameters('sqlserverName'))]"
           ],
-          "location": "Germany West Central",
+          "location": "[parameters('databaseLocation')]",
           "name": "AllowAllWindowsAzureIps",
           "properties": {
             "endIpAddress": "0.0.0.0",
