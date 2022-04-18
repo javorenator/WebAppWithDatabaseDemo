@@ -93,7 +93,7 @@
     {
       "name": "[parameters('sqlserverName')]",
       "type": "Microsoft.Sql/servers",
-      "location": "[resourceGroup().location]",
+      "location": "Germany West Central",
       "tags": {
         "displayName": "SqlServer"
       },
@@ -127,7 +127,7 @@
           "dependsOn": [
             "[resourceId('Microsoft.Sql/servers/', parameters('sqlserverName'))]"
           ],
-          "location": "[resourceGroup().location]",
+          "location": "Germany West Central",
           "name": "AllowAllWindowsAzureIps",
           "properties": {
             "endIpAddress": "0.0.0.0",
