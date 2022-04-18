@@ -90,52 +90,52 @@
   "variables": {
   },
   "resources": [
-    //{
-    //  "name": "[parameters('sqlserverName')]",
-    //  "type": "Microsoft.Sql/servers",
-    //  "location": "[resourceGroup().location]",
-    //  "tags": {
-    //    "displayName": "SqlServer"
-    //  },
-    //  "apiVersion": "2014-04-01-preview",
-    //  "properties": {
-    //    "administratorLogin": "[parameters('administratorLogin')]",
-    //    "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
-    //  },
-    //  "resources": [
-    //    {
-    //      "name": "[parameters('databaseName')]",
-    //      "type": "databases",
-    //      "location": "[parameters('databaseLocation')]",
-    //      "tags": {
-    //        "displayName": "Database"
-    //      },
-    //      "apiVersion": "2014-04-01-preview",
-    //      "dependsOn": [
-    //        "[resourceId('Microsoft.Sql/servers/', parameters('sqlserverName'))]"
-    //      ],
-    //      "properties": {
-    //        "edition": "[parameters('edition')]",
-    //        "collation": "[parameters('collation')]",
-    //        "maxSizeBytes": "[parameters('maxSizeBytes')]",
-    //        "requestedServiceObjectiveName": "[parameters('requestedServiceObjectiveName')]"
-    //      }
-    //    },
-    //    {
-    //      "type": "firewallrules",
-    //      "apiVersion": "2014-04-01-preview",
-    //      "dependsOn": [
-    //        "[resourceId('Microsoft.Sql/servers/', parameters('sqlserverName'))]"
-    //      ],
-    //      "location": "[resourceGroup().location]",
-    //      "name": "AllowAllWindowsAzureIps",
-    //      "properties": {
-    //        "endIpAddress": "0.0.0.0",
-    //        "startIpAddress": "0.0.0.0"
-    //      }
-    //    }
-    //  ]
-    //},
+    {
+      "name": "[parameters('sqlserverName')]",
+      "type": "Microsoft.Sql/servers",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "SqlServer"
+      },
+      "apiVersion": "2014-04-01-preview",
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
+      },
+      "resources": [
+        {
+          "name": "[parameters('databaseName')]",
+          "type": "databases",
+          "location": "Germany West Central",
+          "tags": {
+            "displayName": "Database"
+          },
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers/', parameters('sqlserverName'))]"
+          ],
+          "properties": {
+            "edition": "[parameters('edition')]",
+            "collation": "[parameters('collation')]",
+            "maxSizeBytes": "[parameters('maxSizeBytes')]",
+            "requestedServiceObjectiveName": "[parameters('requestedServiceObjectiveName')]"
+          }
+        },
+        {
+          "type": "firewallrules",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers/', parameters('sqlserverName'))]"
+          ],
+          "location": "[resourceGroup().location]",
+          "name": "AllowAllWindowsAzureIps",
+          "properties": {
+            "endIpAddress": "0.0.0.0",
+            "startIpAddress": "0.0.0.0"
+          }
+        }
+      ]
+    },
     {
       "apiVersion": "2015-08-01",
       "name": "[parameters('hostingPlanName')]",
@@ -169,20 +169,20 @@
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       },
       "resources": [
-        //{
-        //  "apiVersion": "2015-08-01",
-        //  "type": "config",
-        //  "name": "connectionstrings",
-        //  "dependsOn": [
-        //    "[resourceId('Microsoft.Web/Sites/', parameters('webSiteName'))]"
-        //  ],
-        //  "properties": {
-        //    "WebAppContext": {
-        //      "value": "[concat('Data Source=tcp:', reference(resourceId('Microsoft.Sql/servers/', parameters('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('sqlserverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-        //      "type": "SQLAzure"
-        //    }
-        //  }
-        //}
+        {
+          "apiVersion": "2015-08-01",
+          "type": "config",
+          "name": "connectionstrings",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites/', parameters('webSiteName'))]"
+          ],
+          "properties": {
+            "WebAppContext": {
+              "value": "[concat('Data Source=tcp:', reference(resourceId('Microsoft.Sql/servers/', parameters('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('sqlserverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+              "type": "SQLAzure"
+            }
+          }
+        }
       ]
     }
   ]
